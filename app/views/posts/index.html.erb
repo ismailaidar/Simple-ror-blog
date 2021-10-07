@@ -3,7 +3,7 @@
 
   <div class="row">
     <% @posts.each do |post| %>
-      <div class="card col-3" style="width: 18rem;">
+      <div class="card col-3 m-1" style="width: 18rem;">
         <%= image_tag post.image, class: 'card-img-top' %>
         <div class="card-body">
           <h5 class="card-title"><%= post.title %></h5>
@@ -14,4 +14,7 @@
     <% end %>
   </div>
 
+  <div class="row text-center">
+    <%= will_paginate @clients, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+  </div>
 </div>

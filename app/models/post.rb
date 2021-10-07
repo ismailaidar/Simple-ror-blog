@@ -8,6 +8,10 @@ class Post < ApplicationRecord
 
   validates :title, length: {minimum: 5}
   validates :body, length: {minimum: 20}
+
+  # paginagion
+  self.per_page = 10
+
   #resize image
   def optimize_image (image, x ,y)
     return image.variant(resize_to_fill: [x, y]).processed
