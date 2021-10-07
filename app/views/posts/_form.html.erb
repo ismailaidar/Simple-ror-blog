@@ -1,32 +1,41 @@
-<%= form_with(model: post) do |form| %>
-  <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+<div class="row">
+  <div class="offset-2 col-8">
+  <%= form_with(model: post) do |form| %>
+    <% if post.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-      <ul>
-        <% post.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% post.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="mb-2">
+      <%= form.label :title %>
+      <%= form.text_field :title, class: 'form-control' %>
+    </div>
+
+    <div class="mb-2">
+      <%= form.label :body %>
+      <%= form.rich_text_area :body %>
+    </div>
+
+    <div class="mb-2">
+      <%= form.label :image %>
+      <%= form.file_field :image, class: 'form-control' %>
+    </div>
+
+    <div class="mb-2">
+      <%= form.label :banner %>
+      <%= form.file_field :banner, class: 'form-control' %>
+    </div>
+
+    <div class="d-grid gap-2">
+      <%= form.submit class: 'btn btn-primary'%>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
   </div>
-
-  <div class="field">
-    <%= form.label :views %>
-    <%= form.number_field :views %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user %>
-    <%= form.text_field :user %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
