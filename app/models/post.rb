@@ -6,9 +6,8 @@ class Post < ApplicationRecord
   # rich text editor rails 6+
   has_rich_text :body
 
-  validates :title, length: min : 5
-  validates :body, length: min :20
-
+  validates :title, length: {minimum: 5}
+  validates :body, length: {minimum: 20}
   #resize image
   def optimize_image (image, x ,y)
     return image.variant(resize_to_fill: [x, y]).processed
