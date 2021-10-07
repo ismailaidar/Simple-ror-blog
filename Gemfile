@@ -28,7 +28,7 @@ gem 'devise'
 gem 'faker'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap4'
-
+gem 'friendly_id'
 ################################ end custom gem
 
 # Use Active Storage variant

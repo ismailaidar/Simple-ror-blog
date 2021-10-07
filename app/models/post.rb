@@ -12,6 +12,10 @@ class Post < ApplicationRecord
   # paginagion
   self.per_page = 10
 
+  # firnedly id
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   #resize image
   def optimize_image (image, x ,y)
     return image.variant(resize_to_fill: [x, y]).processed
