@@ -1,19 +1,22 @@
-<p id="notice"><%= notice %></p>
+<div class="row text-center">
+  <div class="col-12">
+    <div class="d-grid gap-2">
+      <%= image_tag @post.banner, class: 'banner' %>
+    </div>
+  </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+  <div class="col-12 my-4">
+    <h2><%= @post.title %></h2>
+    <small>
+    Created at: <%= @post.created_at.strftime("%m/%d/%Y") %>
+    <b>By: <%= @post.user.email %> </b>
+    |
+    <%= @post.views %>
+    views
+    </small>
+  </div>
 
-<p>
-  <strong>Views:</strong>
-  <%= @post.views %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @post.user %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+  <div class="col-12 px-4 body">
+    <%= @post.body %>
+  </div>
+</div>
